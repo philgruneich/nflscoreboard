@@ -1,0 +1,24 @@
+{
+  "name": "nflscoreboard",
+  "description": "NFL Scoreboard for Statusboard",
+  "main": "index.php",
+  "authors": [
+    "Phillip Gruneich"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "*.DS_Store",
+    ".sass-cache",
+    "**/.*",
+    "node_modules",
+    "build/components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "normalize-css": "normalize.css#~3.0.3"
+  }
+}
