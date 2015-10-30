@@ -15,5 +15,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('js', ['eslint:devel', 'concat:build', 'uglify:main', 'notify:js']);
   grunt.registerTask('css', ['sasslint:build', 'sass:build', 'cmq:build', 'postcss:build', 'cssmin:build', 'notify:sass']);
-  grunt.registerTask('go', ['php:dist', 'browserSync', 'watch']);
+  grunt.registerTask('go', ['browserSync', 'watch']);
 };
