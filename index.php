@@ -1,1 +1,1 @@
-Hello world!
+<?php echo realpath(dirname(__FILE__)); ?>
