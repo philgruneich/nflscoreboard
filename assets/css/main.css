@@ -562,7 +562,6 @@ th {
 }
 
 html {
-	background: #000;
 	color: #fff;
 	font-family: Futura-Medium, SanFranciscoDisplay-Regular, sans-serif;
 }
@@ -591,6 +590,7 @@ html {
 	-ms-flex: 0 0 48px;
 	flex: 0 0 48px;
 	text-align: center;
+	text-shadow: 0 2px 0 #282828;
 }
 
 .info {

@@ -10,7 +10,7 @@ $half: $yellow;
 
 
 html {
-  background: $black;
+  //background: $black;
   color: $white;
   font-family: Futura-Medium, SanFranciscoDisplay-Regular, sans-serif;
 }
@@ -33,6 +33,7 @@ html {
 .name {
   flex: 0 0 48px;
   text-align: center;
+  text-shadow: 0 2px 0 darken($gray, 45%);
 }
 
 .info {
