@@ -14,6 +14,6 @@ module.exports = function (grunt) {
   grunt.loadTasks('tasks');
 
   grunt.registerTask('js', ['eslint:devel', 'concat:build', 'uglify:main', 'notify:js']);
-  grunt.registerTask('css', ['sasslint:build', 'sass:build', 'cmq:build', 'postcss:build', 'cssmin:build', 'notify:sass']);
-  grunt.registerTask('go', ['browserSync', 'watch']);
+  grunt.registerTask('css', ['sass:build', 'cmq:build', 'postcss:build', 'cssmin:build', 'notify:sass']);
+  grunt.registerTask('go', ['php', 'browserSync', 'watch']);
 };

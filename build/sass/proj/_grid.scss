@@ -1,0 +1,69 @@
+$black: #000;
+$white: #fff;
+$gray: rgb(155,155,155);
+$green: rgb(13, 144, 95);
+$red: rgb(236, 70, 58);
+$yellow: rgb(236, 200, 42);
+$ongoing: $green;
+$done: $red;
+$half: $yellow;
+
+
+html {
+  background: $black;
+  color: $white;
+  font-family: Futura-Medium, SanFranciscoDisplay-Regular, sans-serif;
+}
+
+.container {
+  width: 320px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+
+  + .row {
+    border-top: 1px solid darken($gray, 45%);
+  }
+}
+
+.info,
+.score,
+.name {
+  flex: 0 0 48px;
+  text-align: center;
+}
+
+.info {
+  font-size: .75em;
+  //line-height: 1;
+}
+
+.score {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.name {
+  font-size: 1.125em;
+}
+
+.bar {
+  display: block;
+  flex: 0 0 8px;
+  height: 32px;
+  background: $gray;
+
+  .ongoing & {
+    background: $ongoing;
+  }
+
+  .done & {
+    background: $done;
+  }
+
+  .half & {
+    background: $half;
+  }
+}
