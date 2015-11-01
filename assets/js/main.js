@@ -29,6 +29,7 @@
         obj = JSON.parse(req.responseText.replace(/,(?=,)/gm, ",\"\"")).ss;
         length = obj.length;
 
+
         for (i=0; i < length; i++) {
           var row = {};
           row.weekday     = obj[i][0];
@@ -40,7 +41,7 @@
           row.visit_team  = obj[i][6];
           row.visit_score = obj[i][7];
 
-          if (obj[i][2] === "Final") {
+          if (obj[i][2] === "Final" || obj[i][2] === "final overtime") {
             // Game is over
             row.info = 'Final';
             row.class_name = 'done';
@@ -60,6 +61,8 @@
 
           rows.push(row);
         }
+
+        console.log(rows);
 
         htmlLength = rows.length;
 
