@@ -85,7 +85,7 @@
       }
     }
 
-    req.open("GET", 'http://www.nfl.com/liveupdate/scorestrip/scorestrip.json', true);
+    req.open("GET", '/request.php', true);
     req.send();
 
   }
