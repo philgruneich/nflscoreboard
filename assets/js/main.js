@@ -7,10 +7,8 @@
       return "2nd";
     } else if (n === "3") {
       return "3rd";
-    } else if (n === "4") {
-      return "4th";
     } else {
-      return n;
+      return n + "th";
     }
   }
 
