@@ -1,5 +1,12 @@
 <?php
 
-return file_get_contents("http://www.nfl.com/liveupdate/scorestrip/scorestrip.json");
+$ch = curl_init('http://www.nfl.com/liveupdate/scorestrip/scorestrip.json');
+  $result = curl_exec($ch);
+  if(curl_errno($ch))
+    {
+        return 'Curl error: ' . curl_error($ch);
+    }
+    curl_close ($ch);
+    return $result;
 
 ?>

@@ -27,6 +27,7 @@
         var obj, length, htmlLength, i, rows;
 
         rows = [];
+        //console.log(req.responseText);
         obj = JSON.parse(req.responseText.replace(/,(?=,)/gm, ",\"\"")).ss;
         length = obj.length;
 
