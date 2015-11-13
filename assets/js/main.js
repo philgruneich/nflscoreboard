@@ -12,6 +12,14 @@
     }
   }
 
+  function fixJax(n) {
+    if (n.toLowerCase() === 'jac') {
+      return 'JAX';
+    } else {
+      return n;
+    }
+  }
+
   function makeRequest() {
 
     var container = document.querySelector('.container');
@@ -71,13 +79,13 @@
           div.classList.add('row');
           div.classList.add(rows[i].class_name);
           var content = "<div class='info'>" + rows[i].info + "</div>";
-          content += "<div class='name'>" + rows[i].home_team + "</div>";
-          content += "<div class='logo' data-team='" + rows[i].home_team + "'><div class='team-logo'></div></div>";
+          content += "<div class='name'>" + fixJax(rows[i].home_team) + "</div>";
+          content += "<div class='logo' data-team='" + fixJax(rows[i].home_team) + "'><div class='team-logo'></div></div>";
           content += "<div class='score'>" + rows[i].home_score + "</div>";
           content += "<div class='bar'></div>";
           content += "<div class='score'>" + rows[i].visit_score + "</div>";
-          content += "<div class='logo' data-team='" + rows[i].visit_team + "'><div class='team-logo'></div></div>";
-          content += "<div class='name'>" + rows[i].visit_team + "</div>";
+          content += "<div class='logo' data-team='" + fixJax(rows[i].visit_team) + "'><div class='team-logo'></div></div>";
+          content += "<div class='name'>" + fixJax(rows[i].visit_team) + "</div>";
           //console.log(content);
           div.innerHTML = content;
           //console.log(div);
