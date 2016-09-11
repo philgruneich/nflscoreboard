@@ -1,7 +1,5 @@
 'use strict'
 
-//var ngrok = require('ngrok');
-
 module.exports = function (grunt) {
 
   var config = {
