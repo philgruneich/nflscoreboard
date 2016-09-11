@@ -20,23 +20,24 @@
     }
   }
 
-  function makeRequest() {
+  function makeRequest(interval) {
 
     var container = document.querySelector('.container');
-
-    container.innerHTML = "";
 
     var req = new XMLHttpRequest();
 
     req.onreadystatechange = function() {
       if (req.readyState == 4 && req.status == 200) {
-        var obj, length, htmlLength, i, rows;
+
+        container.innerHTML = "";
+
+        window.clearInterval(interval);
+
+        var obj, length, htmlLength, i, rows, ongoingGame;
 
         rows = [];
-        //console.log(req.responseText);
         obj = JSON.parse(req.responseText.replace(/,(?=,)/gm, ",\"\"")).ss;
         length = obj.length;
-
 
         for (i=0; i < length; i++) {
           var row = {};
@@ -63,14 +64,13 @@
             row.class_name = 'upcoming';
           } else {
             // Game is ongoing
+            ongoingGame = true;
             row.info = returnNumeral(obj[i][2]) + '<br />' + obj[i][3];
             row.class_name = 'ongoing';
           }
 
           rows.push(row);
         }
-
-        console.log(rows);
 
         htmlLength = rows.length;
 
@@ -92,12 +92,18 @@
           container.appendChild(div);
         }
 
+        return setRefreshTimer(ongoingGame);
       }
     }
 
     req.open("GET", '/request.php', true);
     req.send();
+  }
 
+  function setRefreshTimer(ongoing) {
+    var timer = (ongoing ? 60000 : 1800000);
+
+    return setInterval(makeRequest, timer);
   }
 
   function init() {
@@ -106,21 +112,14 @@
     {
       document.querySelector('.container').style.backgroundColor = '#000';
     }
-    
-    makeRequest();
 
     var date = new Date();
     var weekday = date.getDay();
-    var timer;
+    var timer, interval;
 
-    if(weekday === 0 || weekday === 1 || weekday === 4) {
-      timer = 60000;
-    } else {
-      timer = 1800000;
-    }
-    // console.log(timer);
+    interval = setRefreshTimer((weekday === 0 || weekday === 1 || weekday === 4));
 
-    var int=self.setInterval(function(){makeRequest()},timer);
+    return makeRequest(interval);
   }
 
   init();
